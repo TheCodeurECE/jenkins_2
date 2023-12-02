@@ -4,22 +4,22 @@ pipeline {
         stage('git checkout') {
             steps {
                 echo 'git checkout...'
-                sleep time: 3, unit: 'SECONDS' // Simulate a git checkout that lasts for 4 seconds
+                sleep time: 3, unit: 'SECONDS' // Simulate a git checkout that lasts for 3 seconds
             }
         }
         
         stage('Build') {
             steps {
-                echo 'Sbuilding the application'
-                sleep time: 15, unit: 'SECONDS' // Simulate a build that lasts for 20 seconds
+                echo 'Building the application' // Corrected the typo in the echo statement
+                sleep time: 15, unit: 'SECONDS' // Simulate a build that lasts for 15 seconds
             }
         }
-        // Add other stages as needed nothing hjzv ih 
+        // Add other stages as needed
     }
-}
-post{
-failure{
-emailext body: ’Ce Build $BUILD_NUMBER a échoué’,
-recipientProviders:[requestor()], subject: ’build’, to:
-’jean.tabary@edu.ece.fr’
+    post {
+        failure {
+            emailext body: 'Ce Build $BUILD_NUMBER a échoué',
+            recipientProviders: [requestor()], subject: 'build', to: 'jean.tabary@edu.ece.fr'
+        }
+    }
 }
