@@ -17,3 +17,9 @@ pipeline {
         // Add other stages as needed nothing hjzv ih 
     }
 }
+post{
+failure{
+emailext body: ’Ce Build $BUILD_NUMBER a échoué’,
+recipientProviders:[requestor()], subject: ’build’, to:
+’jean.tabary@edu.ece.fr’
+}
