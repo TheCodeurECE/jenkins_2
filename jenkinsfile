@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('git checkout') {
+            steps {
+                echo 'git checkout...'
+                sleep time: 4, unit: 'SECONDS' // Simulate a git checkout that lasts for 4 seconds
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                echo 'Sbuilding the application'
+                sleep time: 20, unit: 'SECONDS' // Simulate a build that lasts for 20 seconds
+            }
+        }
+        // Add other stages as needed
+    }
+}
