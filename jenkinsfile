@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application'
-                error 'Intentional failure for testing purposes' // Introduce intentional failure
+                error 'erreur volontaire pour recevoir un mail' // Introduce intentional failure
             }
         }
         // Add other stages as needed
